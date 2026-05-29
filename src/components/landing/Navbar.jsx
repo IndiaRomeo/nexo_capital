@@ -20,7 +20,7 @@ export default function Navbar() {
     : 'text-white/90 hover:text-white'
 
   return (
-    <nav className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-md border-b border-gray-100' : 'bg-transparent'}`}>
+    <nav className={`sticky top-0 z-50 transition-all duration-500 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-md border-b border-gray-100' : 'bg-gradient-to-b from-black/40 via-black/10 to-transparent backdrop-blur-none'}`}>
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link to="/" className="flex-shrink-0">
           <Logo className="h-10 w-auto" textClass={`font-bold text-xl ${scrolled ? 'text-primary' : 'text-white'}`} />
