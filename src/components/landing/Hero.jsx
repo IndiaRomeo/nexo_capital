@@ -8,6 +8,9 @@ export default function Hero() {
       <div className="absolute bottom-10 left-[5%] w-96 h-96 bg-secondary/30 rounded-full blur-3xl animate-blob delay-400"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-blob delay-200"></div>
 
+      {/* Navbar contrast overlay — invisible vignette for text readability */}
+      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-black/35 to-transparent z-0 pointer-events-none"></div>
+
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 opacity-5" style={{backgroundImage:'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize:'40px 40px'}}></div>
 
