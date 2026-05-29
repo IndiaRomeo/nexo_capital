@@ -2,7 +2,7 @@ import LoanCalculator from './LoanCalculator.jsx'
 
 export default function Hero() {
   return (
-    <section className="bg-animated-gradient min-h-screen flex items-center relative overflow-hidden">
+    <section className="bg-animated-gradient min-h-screen flex items-center relative overflow-hidden pt-16">
       {/* Animated blobs */}
       <div className="absolute top-20 right-[5%] w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-blob"></div>
       <div className="absolute bottom-10 left-[5%] w-96 h-96 bg-secondary/30 rounded-full blur-3xl animate-blob delay-400"></div>
