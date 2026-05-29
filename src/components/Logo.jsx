@@ -11,9 +11,7 @@ export default function Logo({ className = 'h-10 w-auto', textClass = 'text-whit
 
   return (
     <div className="flex items-center gap-3">
-      <div className={`${iconSize} rounded-xl bg-secondary text-white flex items-center justify-center font-black shadow-lg shadow-secondary/20`}>
-        N
-      </div>
+      <img src="/logo.png" alt="Nexo Capital" className={`${iconSize} rounded-xl shadow-lg shadow-secondary/20`} />
       <span className={textClass}>
         <span>Nexo </span>
         <span className="text-accent">Capital</span>
