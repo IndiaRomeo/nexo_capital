@@ -75,17 +75,22 @@ export default function AdminPage() {
   const [copiedLink, setCopiedLink] = useState(false)
 
   useEffect(() => {
-    if (user?.id) fetchAll()
+    if (user?.id) {
+      console.log('Tu user.id (ID de Supabase Auth):', user.id)
+      fetchAll()
+    }
   }, [user?.id])
 
   async function fetchAll() {
     setLoading(true)
     setLoadError('')
+    // Usar user.id para filtrar datos asignados a este admin
+    const adminId = user.id
     const [{ data: l, error: leadsError }, { data: s, error: statesError }, { data: m, error: messagesError }, { data: p }] = await Promise.all([
-      supabase.from('leads').select('*').eq('assigned_admin_id', user.id).order('created_at', { ascending: false }),
-      supabase.from('lead_admin_states').select('*').eq('admin_id', user.id),
-      supabase.from('contact_messages').select('*').or(`assigned_admin_id.is.null,assigned_admin_id.eq.${user.id}`).order('created_at', { ascending: false }),
-      supabase.from('profiles').select('*').eq('assigned_admin_id', user.id).order('created_at', { ascending: false }),
+      supabase.from('leads').select('*').eq('assigned_admin_id', adminId).order('created_at', { ascending: false }),
+      supabase.from('lead_admin_states').select('*').eq('admin_id', adminId),
+      supabase.from('contact_messages').select('*').or(`assigned_admin_id.is.null,assigned_admin_id.eq.${adminId}`).order('created_at', { ascending: false }),
+      supabase.from('profiles').select('*').eq('assigned_admin_id', adminId).order('created_at', { ascending: false }),
     ])
 
     if (leadsError || statesError || messagesError) {
