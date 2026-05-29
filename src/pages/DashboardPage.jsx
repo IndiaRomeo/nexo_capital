@@ -11,7 +11,7 @@ import NewLoanRequestModal from '../components/client/NewLoanRequestModal.jsx'
 import DisbursementFormModal from '../components/client/DisbursementFormModal.jsx'
 import ContractModal from '../components/ContractModal.jsx'
 
-const WA_NUMBER = '13235031139'
+const WA_NUMBER = '19472804624'
 
 const STAGE_LABELS = {
   'nuevo': 'Solicitud recibida',
@@ -222,7 +222,7 @@ export default function DashboardPage() {
               <h1 className="text-2xl font-black text-primary">
                 Hola, {displayName.split(' ')[0]}
               </h1>
-              <p className="text-gray-500 mt-1">Aqui tienes un resumen de tu cuenta con Impulso Latino.</p>
+              <p className="text-gray-500 mt-1">Aqui tienes un resumen de tu cuenta con Nexo Capital.</p>
             </div>
 
             {latestLead && !activeLoan && (
@@ -303,7 +303,7 @@ export default function DashboardPage() {
           <div className="space-y-6">
             <div className="animate-fade-up">
               <h2 className="text-2xl font-black text-primary mb-1">Mi Cuenta</h2>
-              <p className="text-gray-500 text-sm">Tu tarjeta de credito Impulso Latino</p>
+              <p className="text-gray-500 text-sm">Tu tarjeta de credito Nexo Capital</p>
             </div>
             <div className="flex justify-center animate-fade-up delay-100">
               <ProfileCard profile={profile} loan={activeLoan} holderName={displayName} />

@@ -2,10 +2,10 @@ import { useState } from 'react'
 import { Send, CheckCircle, Phone, Mail, Clock, MessageSquare } from 'lucide-react'
 import { supabase } from '../../lib/supabase.js'
 import useScrollReveal from '../../hooks/useScrollReveal.js'
-import { getDefaultAdminRoute } from '../../config/adminRouting.js'
+import { CONTACT_MESSAGES_ADMIN_ID, getContactMessagesAdminRoute } from '../../config/adminRouting.js'
 
 export default function ContactFormSection({ adminRoute }) {
-  const contact = adminRoute || getDefaultAdminRoute()
+  const contact = adminRoute || getContactMessagesAdminRoute()
   const [form, setForm] = useState({ nombre: '', telefono: '', email: '', mensaje: '' })
   const [status, setStatus] = useState('idle') // idle | sending | done | error
   const [ref, visible] = useScrollReveal()
@@ -21,6 +21,7 @@ export default function ContactFormSection({ adminRoute }) {
       telefono: form.telefono || null,
       email: form.email || null,
       mensaje: form.mensaje,
+      assigned_admin_id: CONTACT_MESSAGES_ADMIN_ID,
     })
     if (error) { setStatus('error'); return }
     setStatus('done')
@@ -63,8 +64,8 @@ export default function ContactFormSection({ adminRoute }) {
                 </div>
                 <div>
                   <h4 className="font-bold text-primary mb-1">Email</h4>
-                  <a href="mailto:info@impulsolatino.com" className="text-secondary hover:underline font-medium">
-                    info@impulsolatino.com
+                  <a href="mailto:info@nexocapital.com" className="text-secondary hover:underline font-medium">
+                    info@nexocapital.com
                   </a>
                   <p className="text-gray-400 text-sm mt-1">Respuesta en 24 horas</p>
                 </div>

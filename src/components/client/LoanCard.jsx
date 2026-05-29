@@ -5,7 +5,7 @@ export default function LoanCard({ loan }) {
   const pct = Math.round((paid / loan.monto) * 100)
   const estadoColors = {
     activo:     'bg-green-100 text-green-700',
-    en_proceso: 'bg-yellow-100 text-yellow-700',
+    en_proceso: 'bg-green-100 text-green-700',
     pagado:     'bg-blue-100 text-blue-700',
     rechazado:  'bg-red-100 text-red-700',
   }

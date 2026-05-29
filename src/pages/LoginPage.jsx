@@ -46,7 +46,7 @@ export default function LoginPage() {
           <Link to="/" className="inline-block mb-6">
             <Logo className="h-14 w-auto mx-auto" />
           </Link>
-          <h1 className="text-3xl font-black text-white mb-2">Portal Impulso Latino</h1>
+          <h1 className="text-3xl font-black text-white mb-2">Portal Nexo Capital</h1>
           <p className="text-blue-200">Ingresa con tu correo y contrasena</p>
         </div>
 

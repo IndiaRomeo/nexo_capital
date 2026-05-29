@@ -69,6 +69,7 @@ create table if not exists public.loans (
 -- Contact form messages
 create table if not exists public.contact_messages (
   id uuid default gen_random_uuid() primary key,
+  assigned_admin_id uuid references public.profiles(id) on delete set null,
   nombre text not null,
   telefono text,
   email text,
@@ -143,7 +144,19 @@ create policy "Admins manage loans" on loans for all using (public.is_admin()) w
 
 -- Contact messages
 create policy "Anyone can insert messages" on contact_messages for insert with check (true);
-create policy "Admins manage messages" on contact_messages for all using (public.is_admin());
+create policy "Admins manage messages" on contact_messages for all using (
+  public.is_admin()
+  and (
+    assigned_admin_id is null
+    or assigned_admin_id = auth.uid()
+  )
+) with check (
+  public.is_admin()
+  and (
+    assigned_admin_id is null
+    or assigned_admin_id = auth.uid()
+  )
+);
 
 -- ============================================================
 -- TRIGGER: Auto-create profile on signup

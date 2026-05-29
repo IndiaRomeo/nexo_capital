@@ -1,41 +1,22 @@
-import { useState } from 'react'
-
 export default function Logo({ className = 'h-10 w-auto', textClass = 'text-white font-bold text-xl' }) {
-  const [err, setErr] = useState(false)
-
-  if (!err) {
-    return (
-      <div className="flex items-center gap-3">
-        <img
-          src="/logo.png"
-          alt="Impulso Latino"
-          className={className}
-          onError={() => setErr(true)}
-        />
-        <span className={textClass}>
-          <span style={{color:'#ffffff'}}>Impulso </span>
-          <span style={{color:'#EBA417'}}>Latino</span>
-        </span>
-      </div>
-    )
-  }
+  const iconSize = className.includes('h-12')
+    ? 'h-12 w-12'
+    : className.includes('h-14')
+      ? 'h-14 w-14'
+    : className.includes('h-9')
+      ? 'h-9 w-9'
+      : className.includes('h-8')
+        ? 'h-8 w-8'
+      : 'h-10 w-10'
 
   return (
-    <div className="flex items-center gap-2.5">
-      <svg viewBox="0 0 48 48" className="h-10 w-10 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="24" r="24" fill="#14347B"/>
-        {/* Star */}
-        <polygon points="24,6 27.5,16.5 38.5,16.5 29.5,23 32.5,33.5 24,27 15.5,33.5 18.5,23 9.5,16.5 20.5,16.5" fill="#EBA417"/>
-        {/* Arrow left */}
-        <path d="M16 42 L22 18 L26 42 L22 38 Z" fill="#0077C8" opacity="0.9"/>
-        {/* Arrow right */}
-        <path d="M22 40 L27 20 L32 40 L27 36 Z" fill="white" opacity="0.8"/>
-        {/* Gold swoosh */}
-        <ellipse cx="24" cy="41" rx="10" ry="3" fill="#EBA417" opacity="0.7"/>
-      </svg>
+    <div className="flex items-center gap-3">
+      <div className={`${iconSize} rounded-xl bg-secondary text-white flex items-center justify-center font-black shadow-lg shadow-secondary/20`}>
+        N
+      </div>
       <span className={textClass}>
-        <span style={{color:'#ffffff'}}>Impulso </span>
-        <span style={{color:'#EBA417'}}>Latino</span>
+        <span className="text-white">Nexo </span>
+        <span className="text-accent">Capital</span>
       </span>
     </div>
   )

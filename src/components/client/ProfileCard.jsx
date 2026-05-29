@@ -15,7 +15,7 @@ export default function ProfileCard({ profile, loan, holderName }) {
         {/* Top row */}
         <div className="flex items-start justify-between relative z-10">
           <div>
-            <p className="text-blue-200 text-xs font-medium uppercase tracking-widest">Impulso Latino</p>
+            <p className="text-blue-200 text-xs font-medium uppercase tracking-widest">Nexo Capital</p>
             <p className="text-white font-bold text-sm mt-0.5">Cuenta de Crédito</p>
           </div>
           <div className="flex flex-col items-end gap-1">
@@ -24,7 +24,7 @@ export default function ProfileCard({ profile, loan, holderName }) {
               <span className="badge bg-green-500/20 text-green-300 border border-green-500/30 text-xs">ACTIVO</span>
             )}
             {!hasLoan && (
-              <span className="badge bg-yellow-500/20 text-yellow-300 border border-yellow-500/30 text-xs">PENDIENTE</span>
+              <span className="badge bg-green-500/20 text-accent border border-green-500/30 text-xs">PENDIENTE</span>
             )}
           </div>
         </div>
@@ -32,8 +32,8 @@ export default function ProfileCard({ profile, loan, holderName }) {
         {/* Chip + number */}
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-7 rounded-md border border-yellow-400/60" style={{background:'linear-gradient(135deg,#EBA417,#f5c842)'}}>
-              <div className="w-full h-1/2 border-b border-yellow-300/40 rounded-t-md"></div>
+            <div className="w-10 h-7 rounded-md border border-green-400/60" style={{background:'linear-gradient(135deg,#16D5B5,#7DF3DC)'}}>
+              <div className="w-full h-1/2 border-b border-green-300/40 rounded-t-md"></div>
             </div>
             <Wifi size={14} className="text-blue-300" />
           </div>
@@ -59,7 +59,7 @@ export default function ProfileCard({ profile, loan, holderName }) {
             ) : (
               <>
                 <p className="text-blue-300 text-xs uppercase tracking-widest mb-1">Estado</p>
-                <p className="text-yellow-300 font-bold text-sm">En revisión</p>
+                <p className="text-accent font-bold text-sm">En revisión</p>
               </>
             )}
           </div>

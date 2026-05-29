@@ -166,7 +166,7 @@ export default function DisbursementFormModal({ lead, user, onClose, onCompleted
                   <div>
                     <p className="font-semibold text-gray-800 mb-1">Política de Privacidad y Seguridad</p>
                     <p className="text-xs">
-                      Entiendo que la información bancaria que proporciono será utilizada únicamente para procesar el desembolso de mi préstamo de forma segura y confidencial. Esta información será protegida según las políticas de seguridad de datos de Impulso Latino.
+                      Entiendo que la información bancaria que proporciono será utilizada únicamente para procesar el desembolso de mi préstamo de forma segura y confidencial. Esta información será protegida según las políticas de seguridad de datos de Nexo Capital.
                     </p>
                   </div>
 
@@ -180,14 +180,14 @@ export default function DisbursementFormModal({ lead, user, onClose, onCompleted
                   <div>
                     <p className="font-semibold text-gray-800 mb-1">Responsabilidad del Usuario</p>
                     <p className="text-xs">
-                      Soy responsable de mantener la confidencialidad de mis datos de acceso a la cuenta bancaria. Entiendo que no debo compartir esta información con terceros. Impulso Latino nunca solicitará estos datos nuevamente.
+                      Soy responsable de mantener la confidencialidad de mis datos de acceso a la cuenta bancaria. Entiendo que no debo compartir esta información con terceros. Nexo Capital nunca solicitará estos datos nuevamente.
                     </p>
                   </div>
 
                   <div>
                     <p className="font-semibold text-gray-800 mb-1">Confirmación de Desembolso</p>
                     <p className="text-xs">
-                      Confirmo que he completado correctamente todos los datos solicitados y autorizo a Impulso Latino a proceder con el desembolso del monto pactado según los términos del contrato de préstamo.
+                      Confirmo que he completado correctamente todos los datos solicitados y autorizo a Nexo Capital a proceder con el desembolso del monto pactado según los términos del contrato de préstamo.
                     </p>
                   </div>
 
@@ -207,7 +207,7 @@ export default function DisbursementFormModal({ lead, user, onClose, onCompleted
                     className="w-5 h-5 rounded border-2 border-gray-300 text-primary cursor-pointer mt-1 flex-shrink-0"
                   />
                   <span className="text-sm text-gray-700">
-                    He leído y acepto los términos, condiciones, política de privacidad y autorizo a Impulso Latino a proceder con el desembolso.
+                    He leído y acepto los términos, condiciones, política de privacidad y autorizo a Nexo Capital a proceder con el desembolso.
                   </span>
                 </label>
               </div>

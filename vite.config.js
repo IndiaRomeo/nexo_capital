@@ -3,16 +3,17 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
+  envPrefix: ['VITE_', 'NEXT_PUBLIC_'],
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'logo.png'],
+      includeAssets: ['favicon.svg'],
       manifest: {
-        name: 'Impulso Latino',
-        short_name: 'Impulso Latino',
+        name: 'Nexo Capital',
+        short_name: 'Nexo Capital',
         description: 'Préstamos rápidos para latinos en Estados Unidos. Aprobación rápida y atención personalizada.',
-        theme_color: '#14347B',
+        theme_color: '#0B1F33',
         background_color: '#ffffff',
         display: 'standalone',
         scope: '/',
@@ -21,14 +22,14 @@ export default defineConfig({
         lang: 'es',
         icons: [
           {
-            src: 'logo.png',
-            sizes: '192x192',
-            type: 'image/png'
+            src: 'favicon.svg',
+            sizes: '512x512',
+            type: 'image/svg+xml'
           },
           {
-            src: 'logo.png',
+            src: 'favicon.svg',
             sizes: '512x512',
-            type: 'image/png',
+            type: 'image/svg+xml',
             purpose: 'any maskable'
           }
         ]

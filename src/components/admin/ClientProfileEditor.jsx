@@ -239,16 +239,16 @@ export default function ClientProfileEditor({ profile: initialProfile, currentAd
             </div>
             {/* Password reset button for admin */}
             {!initialProfile.is_admin && (
-              <div className="flex items-center justify-between bg-orange-50 border border-orange-200 rounded-xl px-4 py-2.5">
+              <div className="flex items-center justify-between bg-blue-50 border border-blue-200 rounded-xl px-4 py-2.5">
                 <div className="flex items-center gap-2">
-                  <KeyRound size={14} className="text-orange-500"/>
-                  <p className="text-sm text-orange-700">Recuperación de contraseña</p>
+                  <KeyRound size={14} className="text-secondary"/>
+                  <p className="text-sm text-blue-700">Recuperación de contraseña</p>
                 </div>
                 <button
                   type="button"
                   onClick={handleSendReset}
                   disabled={resetStatus === 'sending'}
-                  className="flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg transition-all bg-orange-500 hover:bg-orange-600 disabled:opacity-60 text-white"
+                  className="flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg transition-all bg-blue-500 hover:bg-green-700 disabled:opacity-60 text-white"
                 >
                   {resetStatus === 'sending' ? (
                     <><span className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Enviando...</>

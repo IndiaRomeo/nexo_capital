@@ -34,7 +34,7 @@ export default function LoanCalculator() {
           step={500}
           value={amount}
           onChange={e => setAmount(Number(e.target.value))}
-          className="w-full h-2 bg-blue-800 rounded-full appearance-none cursor-pointer accent-yellow-400"
+          className="w-full h-2 bg-blue-800 rounded-full appearance-none cursor-pointer accent-secondary"
         />
         <div className="flex justify-between text-xs text-blue-300 mt-1">
           <span>$500</span><span>$50,000</span>

@@ -66,8 +66,8 @@ export default function Step3({ data, update, onNext, onBack }) {
         )}
 
         {data.cuentaActiva === 'No' && (
-          <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-4">
-            <p className="text-yellow-800 text-sm font-medium">Una cuenta bancaria activa en USA es necesaria para recibir el préstamo. Te recomendamos abrir una cuenta antes de aplicar.</p>
+          <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+            <p className="text-green-800 text-sm font-medium">Una cuenta bancaria activa en USA es necesaria para recibir el préstamo. Te recomendamos abrir una cuenta antes de aplicar.</p>
           </div>
         )}
 

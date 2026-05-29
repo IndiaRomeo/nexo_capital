@@ -18,7 +18,7 @@ export default function QuienesSomos() {
           <p className="text-secondary font-semibold uppercase tracking-wider text-sm mb-2">Nuestra historia</p>
           <h2 className="section-title mb-4">¿Quiénes Somos?</h2>
           <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
-            Impulso Latino nació de la necesidad real de nuestra comunidad. Somos un equipo de profesionales
+            Nexo Capital nació de la necesidad real de nuestra comunidad. Somos un equipo de profesionales
             hispanos que entendemos los obstáculos que enfrentan los latinos al buscar financiamiento en USA.
             Por eso creamos una solución directa, honesta y en tu idioma.
           </p>

@@ -29,21 +29,21 @@ export default async function handler(req, res) {
     const resend = new Resend(process.env.RESEND_API_KEY)
 
     await resend.emails.send({
-      from: 'Impulso Latino <noreply@latinoimpulso.com>',
+      from: 'Nexo Capital <noreply@nexocapital.com>',
       to: email.trim().toLowerCase(),
-      subject: 'Recupera tu contraseña — Impulso Latino',
+      subject: 'Recupera tu contraseña — Nexo Capital',
       html: `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:32px 16px;">
-          <h2 style="color:#1a3a6b;margin-bottom:8px;">Recupera tu contraseña</h2>
-          <p style="color:#444;">Recibimos una solicitud para restablecer la contraseña de tu cuenta en <strong>Impulso Latino</strong>.</p>
+          <h2 style="color:#0B1F33;margin-bottom:8px;">Recupera tu contraseña</h2>
+          <p style="color:#444;">Recibimos una solicitud para restablecer la contraseña de tu cuenta en <strong>Nexo Capital</strong>.</p>
           <p style="color:#444;">Haz clic en el botón para crear una nueva contraseña:</p>
           <a href="${data.properties.action_link}"
-             style="display:inline-block;background:#f5a623;color:white;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:bold;font-size:16px;margin:16px 0;">
+             style="display:inline-block;background:#16D5B5;color:white;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:bold;font-size:16px;margin:16px 0;">
             Restablecer contraseña
           </a>
           <p style="color:#888;font-size:13px;margin-top:24px;">Este enlace expira en 1 hora. Si no solicitaste esto, puedes ignorar este correo.</p>
           <hr style="border:none;border-top:1px solid #eee;margin:24px 0;">
-          <p style="color:#bbb;font-size:12px;">Impulso Latino — Servicios Financieros</p>
+          <p style="color:#bbb;font-size:12px;">Nexo Capital — Servicios Financieros</p>
         </div>
       `
     })

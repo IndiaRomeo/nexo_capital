@@ -60,7 +60,7 @@ export default function LeadProfile({ lead, currentAdmin, onClose, onUpdate }) {
   const monthly = calcTerm > 0 ? ((calcAmount * (1 + rateDecimal)) / calcTerm).toFixed(2) : '0.00'
   const total   = (calcAmount * (1 + rateDecimal)).toFixed(2)
 
-  const waMsg = encodeURIComponent(`Hola ${lead.nombre}, soy asesor de Impulso Latino. Quería dar seguimiento a tu solicitud de ${lead.monto_necesario}. ¿Tienes un momento?`)
+  const waMsg = encodeURIComponent(`Hola ${lead.nombre}, soy asesor de Nexo Capital. Quería dar seguimiento a tu solicitud de ${lead.monto_necesario}. ¿Tienes un momento?`)
 
   useEffect(() => { fetchExistingLoan() }, [])
 
@@ -468,7 +468,7 @@ export default function LeadProfile({ lead, currentAdmin, onClose, onUpdate }) {
                   className={`w-full flex items-center justify-center gap-2 py-2.5 text-sm font-semibold rounded-xl border border-dashed transition-all ${
                     lead.archived
                       ? 'border-green-200 text-green-600 hover:bg-green-50 hover:border-green-400'
-                      : 'border-gray-200 text-gray-400 hover:text-orange-600 hover:bg-orange-50 hover:border-orange-300'
+                      : 'border-gray-200 text-gray-400 hover:text-blue-600 hover:bg-blue-50 hover:border-blue-300'
                   }`}
                 >
                   {lead.archived
@@ -477,20 +477,20 @@ export default function LeadProfile({ lead, currentAdmin, onClose, onUpdate }) {
                   }
                 </button>
               ) : (
-                <div className={`rounded-xl p-4 border ${lead.archived ? 'bg-green-50 border-green-200' : 'bg-orange-50 border-orange-200'}`}>
-                  <p className={`text-sm font-bold mb-1 ${lead.archived ? 'text-green-800' : 'text-orange-800'}`}>
+                <div className={`rounded-xl p-4 border ${lead.archived ? 'bg-green-50 border-green-200' : 'bg-blue-50 border-blue-200'}`}>
+                  <p className={`text-sm font-bold mb-1 ${lead.archived ? 'text-green-800' : 'text-blue-800'}`}>
                     {lead.archived ? '¿Restaurar este lead?' : '¿Archivar este lead?'}
                   </p>
-                  <p className={`text-xs mb-3 ${lead.archived ? 'text-green-700' : 'text-orange-700'}`}>
+                  <p className={`text-xs mb-3 ${lead.archived ? 'text-green-700' : 'text-blue-700'}`}>
                     {lead.archived
                       ? 'Volverá a aparecer en el pipeline activo.'
                       : 'Se ocultará del pipeline. Puedes consultarlo en "Ver archivados" cuando lo necesites.'}
                   </p>
                   <div className="flex gap-2">
-                    <button onClick={() => setArchiveConfirm(false)} className={`flex-1 py-2 rounded-lg border text-sm font-semibold ${lead.archived ? 'border-green-200 text-green-700' : 'border-orange-200 text-orange-700'}`}>
+                    <button onClick={() => setArchiveConfirm(false)} className={`flex-1 py-2 rounded-lg border text-sm font-semibold ${lead.archived ? 'border-green-200 text-green-700' : 'border-blue-200 text-blue-700'}`}>
                       Cancelar
                     </button>
-                    <button onClick={handleArchive} disabled={archiving} className={`flex-1 py-2 rounded-lg text-white text-sm font-bold disabled:opacity-60 ${lead.archived ? 'bg-green-600 hover:bg-green-700' : 'bg-orange-500 hover:bg-orange-600'}`}>
+                    <button onClick={handleArchive} disabled={archiving} className={`flex-1 py-2 rounded-lg text-white text-sm font-bold disabled:opacity-60 ${lead.archived ? 'bg-green-600 hover:bg-green-700' : 'bg-blue-500 hover:bg-green-700'}`}>
                       {archiving ? 'Procesando...' : 'Confirmar'}
                     </button>
                   </div>

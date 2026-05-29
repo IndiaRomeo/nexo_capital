@@ -18,7 +18,7 @@ const testimonials = [
   {
     name: 'Ana L.',
     state: 'California',
-    text: 'Gracias a Impulso Latino pude cubrir una emergencia familiar. El proceso fue muy rápido y profesional.',
+    text: 'Gracias a Nexo Capital pude cubrir una emergencia familiar. El proceso fue muy rápido y profesional.',
     rating: 5,
     amount: '$2,000',
   },

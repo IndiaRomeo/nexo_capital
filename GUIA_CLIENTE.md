@@ -1,9 +1,9 @@
-# Guía Completa de Uso — Impulso Latino
+# Guía Completa de Uso — Nexo Capital
 ### Plataforma de Gestión de Préstamos para la Comunidad Latina
 
 ---
 
-> **Documento confidencial** — Preparado exclusivamente para el equipo de Impulso Latino.  
+> **Documento confidencial** — Preparado exclusivamente para el equipo de Nexo Capital.  
 > Versión 0.4 · Mayo 2026
 
 ---
@@ -24,13 +24,13 @@
 
 ## 1. Visión General de la Plataforma
 
-**Impulso Latino** es una plataforma web completa diseñada para gestionar préstamos personales dirigidos a la comunidad hispana en Estados Unidos. La plataforma tiene **dos grandes áreas**:
+**Nexo Capital** es una plataforma web completa diseñada para gestionar préstamos personales dirigidos a la comunidad hispana en Estados Unidos. La plataforma tiene **dos grandes áreas**:
 
 | Área | ¿Para quién? | ¿Cómo se accede? |
 |---|---|---|
 | **Sitio público + Formulario** | Clientes que buscan un préstamo | Visitando la página principal |
 | **Portal del cliente** | Clientes que ya aplicaron | Iniciando sesión en `/dashboard` |
-| **Panel de administración** | El equipo de Impulso Latino | Iniciando sesión en `/admin` |
+| **Panel de administración** | El equipo de Nexo Capital | Iniciando sesión en `/admin` |
 
 ### ¿Cómo está construida?
 
@@ -42,7 +42,7 @@ La plataforma funciona con datos en tiempo real almacenados en **Supabase** (bas
 
 ### 2.1 Rol: Administrador
 
-El administrador es el equipo interno de Impulso Latino. Tiene acceso completo al CRM, puede ver todos los leads, moverlos por el pipeline, ver datos de desembolso y responder mensajes de contacto.
+El administrador es el equipo interno de Nexo Capital. Tiene acceso completo al CRM, puede ver todos los leads, moverlos por el pipeline, ver datos de desembolso y responder mensajes de contacto.
 
 **Para ingresar como administrador:**
 1. Ir a la página web
@@ -66,7 +66,7 @@ Los clientes son las personas que llenan el formulario de solicitud de préstamo
 
 ## 3. La Landing Page (Sitio Público)
 
-La página principal es la cara pública de Impulso Latino. Está diseñada para atraer y convertir visitantes en aplicantes. Funciona perfectamente en **celulares, tablets y computadoras**.
+La página principal es la cara pública de Nexo Capital. Está diseñada para atraer y convertir visitantes en aplicantes. Funciona perfectamente en **celulares, tablets y computadoras**.
 
 ### Secciones de la página:
 
@@ -82,14 +82,14 @@ La página principal es la cara pública de Impulso Latino. Está diseñada para
 
 #### Requisitos
 - Lista los requisitos mínimos de manera clara y no intimidante
-- Incluye la sección "¿Por qué elegirnos?" con los diferenciadores de Impulso Latino
+- Incluye la sección "¿Por qué elegirnos?" con los diferenciadores de Nexo Capital
 
 #### Testimonios y Confianza
 - Testimonios de clientes reales con montos aprobados
 - Pilares de confianza: datos protegidos, sin intermediarios, transparencia total
 
 #### Quiénes Somos
-- Historia y valores de Impulso Latino
+- Historia y valores de Nexo Capital
 - Estadísticas de la empresa (años de experiencia, clientes, satisfacción)
 
 #### Contacto
@@ -180,7 +180,7 @@ Cuando la solicitud llega a la etapa final ("¡Dinero enviado!"), la línea de t
 
 Muestra una **tarjeta de crédito animada** con:
 - Nombre del titular
-- Número de cuenta (identificador interno de Impulso Latino)
+- Número de cuenta (identificador interno de Nexo Capital)
 - Estado de la cuenta (ACTIVO / PENDIENTE)
 - Saldo pendiente del préstamo activo
 
@@ -213,7 +213,7 @@ El cliente puede:
 
 ## 6. Panel de Administración (CRM)
 
-El panel de administración es el corazón operativo de Impulso Latino. Aquí el equipo gestiona todos los leads, el pipeline de ventas, los datos de desembolso y los mensajes de contacto.
+El panel de administración es el corazón operativo de Nexo Capital. Aquí el equipo gestiona todos los leads, el pipeline de ventas, los datos de desembolso y los mensajes de contacto.
 
 **URL de acceso:** `/admin` (se accede iniciando sesión con cuenta de administrador)
 
@@ -467,7 +467,7 @@ El contador de "Total Leads" en el panel admin se actualiza en tiempo real. Se r
 Sí. Toda la plataforma está optimizada para móvil. El panel admin tiene vista Kanban con scroll horizontal y todos los formularios se adaptan a pantallas pequeñas.
 
 **¿Qué significa el número de cuenta de la tarjeta del cliente?**  
-Es un identificador interno generado automáticamente por el sistema. No es un número de cuenta bancaria real, es el identificador de Impulso Latino para ese cliente.
+Es un identificador interno generado automáticamente por el sistema. No es un número de cuenta bancaria real, es el identificador de Nexo Capital para ese cliente.
 
 **¿Cómo agregar nuevos asesores al sistema?**  
 1. El nuevo asesor crea una cuenta (o el admin la crea en Supabase → Authentication → Users)
@@ -478,7 +478,7 @@ Es un identificador interno generado automáticamente por el sistema. No es un n
 Desde la interfaz, los leads se **archivan** en vez de eliminarse. Esto mantiene el historial completo y permite restaurarlos si se necesita. Si se requiere eliminar un registro permanentemente, se hace directamente desde Supabase → tabla `leads`. No se recomienda para mantener integridad de datos.
 
 **¿El contrato es un documento legal?**  
-El contrato generado por la plataforma es un documento de referencia entre Impulso Latino y el cliente. Para validez legal completa se recomienda revisión por asesor legal según las regulaciones del estado correspondiente.
+El contrato generado por la plataforma es un documento de referencia entre Nexo Capital y el cliente. Para validez legal completa se recomienda revisión por asesor legal según las regulaciones del estado correspondiente.
 
 **¿Por qué el cliente ve su perfil actualizado sin haberlo llenado?**  
 Cuando el asesor ingresa los datos del cliente en el panel admin (fecha de nacimiento, dirección, estado civil, código postal), el sistema los sincroniza automáticamente al perfil del cliente. Es una funcionalidad diseñada para que el asesor pueda completar la información durante las llamadas.
@@ -492,9 +492,9 @@ Los leads archivados son solicitudes que ya no están activas (rechazadas, aband
 
 Para soporte técnico, nuevas funcionalidades o reportar problemas:
 
-> Esta plataforma fue diseñada y desarrollada a medida para **Impulso Latino**.  
+> Esta plataforma fue diseñada y desarrollada a medida para **Nexo Capital**.  
 > Para modificaciones, actualizaciones o nuevas funcionalidades, contactar al desarrollador.
 
 ---
 
-*Documento actualizado en Mayo 2026 · Impulso Latino Platform v0.4*
+*Documento actualizado en Mayo 2026 · Nexo Capital Platform v0.4*

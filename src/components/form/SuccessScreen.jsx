@@ -5,7 +5,7 @@ import { getDefaultAdminRoute } from '../../config/adminRouting.js'
 export default function SuccessScreen({ data, adminRoute }) {
   const contact = adminRoute || getDefaultAdminRoute()
   const waMessage = encodeURIComponent(
-    `Hola! Soy ${data.nombre} de ${data.estado}. Ya llene el formulario de solicitud de prestamo en Impulso Latino y quiero continuar con mi aplicacion.`
+    `Hola! Soy ${data.nombre} de ${data.estado}. Ya llene el formulario de solicitud de prestamo en Nexo Capital y quiero continuar con mi aplicacion.`
   )
 
   return (
