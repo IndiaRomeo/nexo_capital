@@ -14,7 +14,7 @@ function OptionCard({ label, value, selected, onClick }) {
   )
 }
 
-const RATES = { 12: 0.04, 24: 0.05, 36: 0.06 }
+const RATES = { 12: 0.01, 24: 0.01, 36: 0.01 }
 const AMOUNT_MAP = { '$500 – $1,000': 750, '$1,000 – $2,000': 1500, '$2,000 – $5,000': 3500, 'Más de $5,000': 5000 }
 
 export default function Step4({ data, update, onSubmit, onBack, loading = false, error = '' }) {

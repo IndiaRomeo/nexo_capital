@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext.jsx'
 
-const DISPLAY_RATES = { 12: 0.04, 24: 0.05, 36: 0.06 }
-const CALC_RATES = { 12: 0.04, 24: 0.10, 36: 0.18 }
+const DISPLAY_RATES = { 12: 0.01, 24: 0.01, 36: 0.01 }
+const CALC_RATES = { 12: 0.01, 24: 0.01, 36: 0.01 }
 
 export default function LoanCalculator() {
   const [amount, setAmount] = useState(3000)

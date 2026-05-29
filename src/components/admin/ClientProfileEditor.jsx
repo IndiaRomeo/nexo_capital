@@ -108,7 +108,7 @@ export default function ClientProfileEditor({ profile: initialProfile, currentAd
       setLoanForm({
         monto:             ln.monto || '',
         plazo_meses:       ln.plazo_meses || 12,
-        tasa_pct:          Number((ln.tasa_interes * 100).toFixed(2)) || 4,
+        tasa_pct:          Number((ln.tasa_interes * 100).toFixed(2)) || 1,
         estado:            ln.estado || 'activo',
       })
     }

@@ -11,7 +11,7 @@ const PIPELINE_STAGES = [
   { id: 'desembolsado', label: 'Desembolsado' },
 ]
 
-const PRESET_RATES = { 12: 4, 24: 5, 36: 6 }  // percent
+const PRESET_RATES = { 12: 1, 24: 1, 36: 1 }  // percent
 const AMOUNT_MID   = { '$500 – $1,000': 750, '$1,000 – $2,000': 1500, '$2,000 – $5,000': 3500, 'Más de $5,000': 7000 }
 
 const DISBURSEMENT_STATUS = {
@@ -43,7 +43,7 @@ export default function LeadProfile({ lead, currentAdmin, onClose, onUpdate }) {
   const [stage, setStage]                 = useState(lead.stage || 'nuevo')
   const [calcAmount, setCalcAmount]       = useState(Number(lead.loan_amount) || AMOUNT_MID[lead.monto_necesario] || 3500)
   const [calcTerm, setCalcTerm]           = useState(Number(lead.loan_term_months) || 12)
-  const [calcRate, setCalcRate]           = useState(Number(lead.loan_rate_pct) || 4)   // percentage
+  const [calcRate, setCalcRate]           = useState(Number(lead.loan_rate_pct) || 1)   // percentage
   const [saving, setSaving]               = useState(false)
   const [creatingLoan, setCreatingLoan]   = useState(false)
   const [loanMessage, setLoanMessage]     = useState('')

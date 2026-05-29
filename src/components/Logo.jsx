@@ -15,7 +15,7 @@ export default function Logo({ className = 'h-10 w-auto', textClass = 'text-whit
         N
       </div>
       <span className={textClass}>
-        <span className="text-white">Nexo </span>
+        <span>Nexo </span>
         <span className="text-accent">Capital</span>
       </span>
     </div>

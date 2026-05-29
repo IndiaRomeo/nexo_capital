@@ -28,7 +28,19 @@ export default function LandingPage() {
       <TrustBuilder />
 
       {/* Form section */}
-      {!user && <section id="formulario" className="py-20 bg-gradient-to-br from-primary via-blue-800 to-secondary relative overflow-hidden">
+      {!user && <section id="formulario" className="pt-24 pb-28 bg-gradient-to-br from-primary via-blue-800 to-secondary relative overflow-hidden">
+        {/* Top wave */}
+        <div className="absolute top-0 left-0 right-0 z-10">
+          <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-16 md:h-20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L1440,0 L1440,40 C1080,80 720,0 360,40 C180,60 90,20 0,40 Z" fill="#f9fafb"/>
+          </svg>
+        </div>
+        {/* Bottom wave */}
+        <div className="absolute bottom-0 left-0 right-0 z-10">
+          <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-16 md:h-20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,80 L1440,80 L1440,40 C1080,0 720,80 360,40 C180,20 90,60 0,40 Z" fill="white"/>
+          </svg>
+        </div>
         <div className="absolute inset-0 opacity-5" style={{backgroundImage:'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize:'32px 32px'}}></div>
         <div className="max-w-6xl mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
