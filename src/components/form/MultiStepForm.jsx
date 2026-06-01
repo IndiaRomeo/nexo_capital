@@ -66,6 +66,8 @@ export default function MultiStepForm({ assignedAdminId = null, adminRoute = nul
       })
 
       if (signUpErr) {
+        // Log full Supabase error for debugging (temporal)
+        console.error('Supabase signUp error:', signUpErr)
         const message = signUpErr.message?.toLowerCase() || ''
         const accountExists = message.includes('already') || message.includes('registered')
 
