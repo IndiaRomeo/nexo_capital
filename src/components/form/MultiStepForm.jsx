@@ -84,6 +84,13 @@ export default function MultiStepForm({ assignedAdminId = null, adminRoute = nul
 
         authUser = signInData.user
       } else {
+        // If signUp doesn't return a session (e.g., Confirm email is enabled),
+        // subsequent DB inserts will be unauthenticated and blocked by RLS.
+        if (!signUpData?.session) {
+          console.error('Supabase signUp returned no session (confirm email may be enabled)', signUpData)
+          throw new Error('No session after signUp. Comprueba que "Confirm email" esté desactivado en Authentication → Settings en Supabase, o crea el perfil desde el servidor usando la `service_role` key.')
+        }
+
         authUser = signUpData.user
       }
 
