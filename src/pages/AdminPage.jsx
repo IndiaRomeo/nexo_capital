@@ -86,21 +86,44 @@ export default function AdminPage() {
     setLoadError('')
     // Usar user.id para filtrar datos asignados a este admin
     const adminId = user.id
-    const [{ data: l, error: leadsError }, { data: s, error: statesError }, { data: m, error: messagesError }, { data: p }] = await Promise.all([
-      supabase.from('leads').select('*').eq('assigned_admin_id', adminId).order('created_at', { ascending: false }),
+    const [{ data: p, error: profilesError }, { data: s, error: statesError }, { data: m, error: messagesError }] = await Promise.all([
+      supabase.from('profiles').select('*').eq('assigned_admin_id', adminId).order('created_at', { ascending: false }),
       supabase.from('lead_admin_states').select('*').eq('admin_id', adminId),
       supabase.from('contact_messages').select('*').or(`assigned_admin_id.is.null,assigned_admin_id.eq.${adminId}`).order('created_at', { ascending: false }),
-      supabase.from('profiles').select('*').eq('assigned_admin_id', adminId).order('created_at', { ascending: false }),
     ])
 
-    if (leadsError || statesError || messagesError) {
-      const error = leadsError || statesError || messagesError
+    const clientProfileIds = (p || [])
+      .filter(profile => profile.is_admin !== true)
+      .map(profile => profile.id)
+
+    const leadQueries = [
+      supabase.from('leads').select('*').eq('assigned_admin_id', adminId).order('created_at', { ascending: false }),
+    ]
+
+    if (clientProfileIds.length > 0) {
+      leadQueries.push(
+        supabase.from('leads').select('*').in('user_id', clientProfileIds).order('created_at', { ascending: false })
+      )
+    }
+
+    const leadResults = await Promise.all(leadQueries)
+    const leadsError = leadResults.find(result => result.error)?.error
+
+    if (profilesError || leadsError || statesError || messagesError) {
+      const error = profilesError || leadsError || statesError || messagesError
       setLoadError(error.message || 'No se pudieron cargar los datos del panel.')
       console.error('Admin load error:', error)
     }
 
     const statesByLead = new Map((s || []).map(state => [state.lead_id, state]))
-    setLeads((l || []).map(lead => mergeLeadWithAdminState(lead, statesByLead.get(lead.id))))
+    const leadsById = new Map()
+    leadResults.forEach(result => {
+      ;(result.data || []).forEach(lead => leadsById.set(lead.id, lead))
+    })
+    const visibleLeads = Array.from(leadsById.values())
+      .sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0))
+
+    setLeads(visibleLeads.map(lead => mergeLeadWithAdminState(lead, statesByLead.get(lead.id))))
     setMessages(m || [])
     setProfiles(p || [])
     setLoading(false)
