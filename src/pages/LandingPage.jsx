@@ -13,11 +13,14 @@ import { Shield } from 'lucide-react'
 import { useAuth } from '../context/AuthContext.jsx'
 import { useSearchParams } from 'react-router-dom'
 import { resolveAdminRoute } from '../config/adminRouting.js'
+import { useState } from 'react'
 
 export default function LandingPage() {
   const { user } = useAuth()
   const [searchParams] = useSearchParams()
+  const [formActive, setFormActive] = useState(false)
   const adminRoute = resolveAdminRoute(searchParams)
+  const showForm = !user || formActive
 
   return (
     <div className="min-h-screen">
@@ -28,7 +31,7 @@ export default function LandingPage() {
       <TrustBuilder />
 
       {/* Form section */}
-      {!user && <section id="formulario" className="pt-24 pb-28 bg-gradient-to-br from-primary via-blue-800 to-secondary relative overflow-hidden">
+      {showForm && <section id="formulario" className="pt-24 pb-28 bg-gradient-to-br from-primary via-blue-800 to-secondary relative overflow-hidden">
         {/* Top wave */}
         <div className="absolute top-0 left-0 right-0 z-10">
           <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-16 md:h-20" xmlns="http://www.w3.org/2000/svg">
@@ -55,7 +58,12 @@ export default function LandingPage() {
 
           <div className="grid lg:grid-cols-5 gap-10 items-start">
             <div className="lg:col-span-3">
-              <MultiStepForm assignedAdminId={adminRoute.id} adminRoute={adminRoute} />
+              <MultiStepForm
+                assignedAdminId={adminRoute.id}
+                adminRoute={adminRoute}
+                onSubmissionStart={() => setFormActive(true)}
+                onSubmitted={() => setFormActive(true)}
+              />
             </div>
             <div className="hidden lg:block lg:col-span-2">
               <div className="animate-float">

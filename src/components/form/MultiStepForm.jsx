@@ -39,7 +39,7 @@ function getSubmitErrorMessage(err) {
   return message || 'Ocurrio un error al enviar tu solicitud. Intenta nuevamente.'
 }
 
-export default function MultiStepForm({ assignedAdminId = null, adminRoute = null }) {
+export default function MultiStepForm({ assignedAdminId = null, adminRoute = null, onSubmissionStart, onSubmitted }) {
   const [step, setStep] = useState(1)
   const [data, setData] = useState(initialData)
   const [submitted, setSubmitted] = useState(false)
@@ -53,6 +53,7 @@ export default function MultiStepForm({ assignedAdminId = null, adminRoute = nul
   async function handleSubmit() {
     setLoading(true)
     setError('')
+    onSubmissionStart?.()
     try {
       let authUser = null
       const email = data.email.trim().toLowerCase()
@@ -149,6 +150,7 @@ export default function MultiStepForm({ assignedAdminId = null, adminRoute = nul
       if (dbErr) throw dbErr
 
       setSubmitted(true)
+      onSubmitted?.()
     } catch (err) {
       setError(getSubmitErrorMessage(err))
       console.error(err)
