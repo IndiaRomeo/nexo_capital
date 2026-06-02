@@ -39,6 +39,11 @@ function getSubmitErrorMessage(err) {
   return message || 'Ocurrio un error al enviar tu solicitud. Intenta nuevamente.'
 }
 
+function isAssignedAdminForeignKeyError(err) {
+  const message = err?.message?.toLowerCase() || ''
+  return message.includes('assigned_admin_id') && message.includes('foreign key')
+}
+
 export default function MultiStepForm({ assignedAdminId = null, adminRoute = null, onSubmissionStart, onSubmitted }) {
   const [step, setStep] = useState(1)
   const [data, setData] = useState(initialData)
@@ -107,6 +112,7 @@ export default function MultiStepForm({ assignedAdminId = null, adminRoute = nul
 
       if (profileLookupErr) throw profileLookupErr
 
+      let safeAssignedAdminId = assignedAdminId
       const profilePayload = {
         email,
         nombre: data.nombre,
@@ -118,20 +124,29 @@ export default function MultiStepForm({ assignedAdminId = null, adminRoute = nul
         profilePayload.assigned_admin_id = assignedAdminId
       }
 
-      const { error: profileErr } = existingProfile
-        ? await supabase.from('profiles').update(profilePayload).eq('id', authUser.id)
-        : await supabase.from('profiles').insert({
-            id: authUser.id,
-            ...profilePayload,
-            numero_cuenta: generateAccountNumber(),
-            is_admin: false,
-          })
+      async function saveProfile(payload) {
+        return existingProfile
+          ? await supabase.from('profiles').update(payload).eq('id', authUser.id)
+          : await supabase.from('profiles').insert({
+              id: authUser.id,
+              ...payload,
+              numero_cuenta: generateAccountNumber(),
+              is_admin: false,
+            })
+      }
 
+      let { error: profileErr } = await saveProfile(profilePayload)
+      if (profileErr && isAssignedAdminForeignKeyError(profileErr)) {
+        console.warn('Assigned admin profile does not exist. Saving customer without assigned_admin_id.', profileErr)
+        safeAssignedAdminId = null
+        delete profilePayload.assigned_admin_id
+        ;({ error: profileErr } = await saveProfile(profilePayload))
+      }
       if (profileErr) throw profileErr
 
-      const { error: dbErr } = await supabase.from('leads').insert({
+      const leadPayload = {
         user_id: authUser.id,
-        assigned_admin_id: assignedAdminId,
+        assigned_admin_id: safeAssignedAdminId,
         nombre: data.nombre,
         email,
         telefono: data.telefono,
@@ -146,7 +161,14 @@ export default function MultiStepForm({ assignedAdminId = null, adminRoute = nul
         historial_credito: data.historialCredito,
         monto_necesario: data.montoNecesario,
         proposito: data.proposito,
-      })
+      }
+
+      let { error: dbErr } = await supabase.from('leads').insert(leadPayload)
+      if (dbErr && isAssignedAdminForeignKeyError(dbErr)) {
+        console.warn('Assigned admin profile does not exist. Saving lead without assigned_admin_id.', dbErr)
+        leadPayload.assigned_admin_id = null
+        ;({ error: dbErr } = await supabase.from('leads').insert(leadPayload))
+      }
       if (dbErr) throw dbErr
 
       setSubmitted(true)

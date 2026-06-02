@@ -1,5 +1,5 @@
-export const DEFAULT_ADMIN_ID = 'd5b2d17c-2177-45d4-a8cb-479c0a68fa48'
-export const CONTACT_MESSAGES_ADMIN_ID = 'de4c7784-f1ef-45c9-ba13-6dd91d4b0215'
+export const DEFAULT_ADMIN_ID = '8d183eca-6d4e-4f6a-a59b-ba258fbb7798'
+export const CONTACT_MESSAGES_ADMIN_ID = '8d183eca-6d4e-4f6a-a59b-ba258fbb7798'
 
 export const ADMIN_ROUTES = [
   {
@@ -9,7 +9,7 @@ export const ADMIN_ROUTES = [
     whatsappLabel: '+1 (947) 280-4624',
   },
   {
-    id: 'de4c7784-f1ef-45c9-ba13-6dd91d4b0215',
+    id: '8d183eca-6d4e-4f6a-a59b-ba258fbb7798',
     slug: 'camilo',
     whatsapp: '19472804624',
     whatsappLabel: '+1 (947) 280-4624',
